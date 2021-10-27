@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Clean Blog - Start Bootstrap Theme</title>
+        <title>Acerca de</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
@@ -14,24 +14,26 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/acercaDe.css" rel="stylesheet" />
     </head>
     <body>
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="index.php">Start Bootstrap</a>
+                <a class="navbar-brand" href="index.php">Inicio</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.php">Home</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about.php">About</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="post.php">Sample Post</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="contact.php">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.php">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about.php">Acerca de</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="matematicas.php">Matemáticas</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="cuentos.php">Cuentos infantiles</a></li>
                     </ul>
                 </div>
+                
             </div>
         </nav>
         <!-- Page Header-->
@@ -40,8 +42,8 @@
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="page-heading">
-                            <h1>About Me</h1>
-                            <span class="subheading">This is what I do.</span>
+                            <h1>Sobre mi</h1>
+                            <span class="subheading">Gabriel Retamal - Ingeniero informático.</span>
                         </div>
                     </div>
                 </div>
@@ -51,10 +53,81 @@
         <main class="mb-4">
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <p>Soy Gabriel Retamal, desarrollador web, a continuación el stack de tecnologias en 
+                        el que tengo experiencia, si le interesa contactarme para algún proyecto envie un correo a: 
+                        <span>retamal532@gmail.com</span>.
+                    </p>
+                    <div id="react" class="card" style="width: 18rem;">
+                                <img src="assets/img/react.PNG" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <p class="card-text">ReactJs, biblioteca de Javascrip para el desarrollo de interfaces.</p>
+                                </div>
+                            </div>
+                            <div class="card" style="width: 18rem;">
+                                <img src="assets/img/wordpress.PNG" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <p class="card-text">Wordpress, CMS open source basado en php, diseños de blogs y sitios comerciales.</p>
+                                </div>
+                            </div>
+                            <div class="card" style="width: 18rem;">
+                                <img src="assets/img/php.PNG" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <p class="card-text">PHP, uno de los lenguajes mas populares en el desarrollo web, cuenta con una amplia documentación.</p>
+                                </div>
+                            </div>
+                            <div class="card" style="width: 18rem;">
+                                <img src="assets/img/spring.PNG" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <p class="card-text">Spring, framework de java para el desarrollo de aplicaciones.</p>
+                                </div>
+                            </div>
+                            <div class="card" style="width: 18rem;">
+                                <img src="assets/img/mysql.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <p class="card-text">Gestor de base de datos MySql.</p>
+                                </div>
+                            </div>
+                            <div class="card" style="width: 18rem;">
+                                <img src="assets/img/postgres.PNG" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <p class="card-text">Gestor de base de datos postgreSql.</p>
+                                </div>
+                            </div>
+                            <div class="card" style="width: 18rem;">
+                                <img src="assets/img/oracle.PNG" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <p class="card-text">Gestor de base de datos postgreSql.</p>
+                                </div>
+                            </div>
+                            <div class="card" style="width: 18rem;">
+                                <img src="assets/img/git.PNG" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <p class="card-text">Software de control de versiones.</p>
+                                </div>
+                            </div>
                     <div class="col-md-10 col-lg-8 col-xl-7">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe nostrum ullam eveniet pariatur voluptates odit, fuga atque ea nobis sit soluta odio, adipisci quas excepturi maxime quae totam ducimus consectetur?</p>
+                        
+                    <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe nostrum ullam eveniet pariatur voluptates odit, fuga atque ea nobis sit soluta odio, adipisci quas excepturi maxime quae totam ducimus consectetur?</p>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius praesentium recusandae illo eaque architecto error, repellendus iusto reprehenderit, doloribus, minus sunt. Numquam at quae voluptatum in officia voluptas voluptatibus, minus!</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut consequuntur magnam, excepturi aliquid ex itaque esse est vero natus quae optio aperiam soluta voluptatibus corporis atque iste neque sit tempora!</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut consequuntur magnam, excepturi aliquid ex itaque esse est vero natus quae optio aperiam soluta voluptatibus corporis atque iste neque sit tempora!</p> -->
+                        <!-- <div id="react" class="card" style="width: 18rem;">
+                            <img src="assets/img/react.PNG" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text">ReactJs, biblioteca de Javascrip para el desarrollo de interfaces.</p>
+                            </div>
+                        </div>
+                        <div class="card" style="width: 18rem;">
+                            <img src="assets/img/wordpress.PNG" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text">Wordpress, CMS open source basado en php, diseños de blogs y sitios comerciales.</p>
+                            </div>
+                        </div>
+                        <div class="card" style="width: 18rem;">
+                            <img src="assets/img/php.PNG" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text">Wordpress, CMS open source basado en php, diseños de blogs y sitios comerciales.</p>
+                            </div>
+                        </div> -->
                     </div>
                 </div>
             </div>

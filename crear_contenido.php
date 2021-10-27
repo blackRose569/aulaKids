@@ -19,29 +19,29 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="index.php">Start Bootstrap</a>
+                <a class="navbar-brand" href="index.php">Inicio</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="home.php">Home</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about.php">About</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="post.php">Sample Post</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="contact.php">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="crear_contenido.php">Agregar</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="adminMatematicas.php">Gestionar matemáticas</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="adminCuentos.php">Gestionar cuentos</a></li>
+                        
                     </ul>
                 </div>
             </div>
         </nav>
         <!-- Page Header-->
-        <header class="masthead" style="background-image: url('assets/img/contact-bg.jpg')">
+        <header class="masthead" style="background-image: url('assets/img/background-agregar-matematicas.jpg')">
             <div class="container position-relative px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="page-heading">
-                            <h1>Contact Me</h1>
-                            <span class="subheading">Have questions? I have answers.</span>
+                            <h1>Agregar contenido</h1>
+                            <span class="subheading">Nuestra plataforma está en constante crecimiento.</span>
                         </div>
                     </div>
                 </div>
@@ -73,6 +73,20 @@
                                     <div class="invalid-feedback" data-sb-feedback="email:required">Campo requerido.</div>
                                     <div class="invalid-feedback" data-sb-feedback="email:email">no valido.</div>
                                 </div>
+                                <div class="form-floating">
+                                    <input class="form-control" id="descripcion" name="descripcion" type="text" placeholder="aquí la descripcion..." data-sb-validations="required" requiered />
+                                    <label >Descripción</label>
+                                    <div class="invalid-feedback" data-sb-feedback="email:required">Campo requerido.</div>
+                                    <div class="invalid-feedback" data-sb-feedback="email:email">no valido.</div>
+                                </div>
+                                <div class="form-floating">
+                                    <select class="form-select" name="campo_select_append" aria-label="Default select example">
+                                        <option selected>Seleccione categoría del contenido</option>
+                                        <option value="matematicas">Matemáticas</option>
+                                        <option value="cuentos">Cuentos infantiles</option>
+                                    </select>
+                                </div>
+                                
                                 <!-- <div class="form-floating">
                                     <input class="form-control" id="phone" type="tel" placeholder="Enter your phone number..." data-sb-validations="required" />
                                     <label for="phone">Phone Number</label>

@@ -10,13 +10,22 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
     $titulo = $_POST['titulo'];
     $nuevoContenido = $_POST['iframe'];
+    $tablaDestino = $_POST['campo_select_append'];
+    $descripcion = $_POST['descripcion'];
 
-    $insert = "INSERT INTO contenido (id, titulo, link) values('', '$titulo', '$nuevoContenido') ";
+    $insert = "INSERT INTO $tablaDestino (id, titulo, link, descripcion) values('', '$titulo', '$nuevoContenido', '$descripcion') ";
 
     $resultado = mysqli_query($db,$insert);
 
     if($resultado){
         echo "Insertado correctamente";
+        sleep(2);
+        if($tablaDestino === 'matematicas'){
+            header('Location: /proyecto%20evaluacion%202/adminMatematicas.php');
+        }else{
+            header('Location: /proyecto%20evaluacion%202/adminCuentos.php');
+        }
+        
     }
     else {
         echo "Error".$insert;

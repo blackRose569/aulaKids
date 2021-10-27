@@ -39,7 +39,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' ){
           session_start();
           $_SESSION['usuario'] = $usuario['user'];
           $_SESSION['login'] = true;
-          header('Location: http://localhost/proyecto%20evaluacion%202/home.php');
+          header('Location: http://localhost/proyecto%20evaluacion%202/crear_contenido.php');
         } else {
           $errores[] = 'contraseña erronea';
           var_dump($errores);

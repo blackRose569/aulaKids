@@ -4,7 +4,7 @@ require 'assets/conexion.php';
 
 $db= conectarDB();
 
-$query = "SELECT * FROM contenido";
+$query = "SELECT * FROM cuentos";
 
 $resultadoConsulta = mysqli_query($db,$query);
 
@@ -26,7 +26,7 @@ $resultadoConsulta = mysqli_query($db,$query);
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>aulaKids-home</title>
+        <title>admin cuentos</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
@@ -47,28 +47,21 @@ $resultadoConsulta = mysqli_query($db,$query);
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.php">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about.php">Acerca de</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="matematicas.php">Matemáticas</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="cuentos.php">Cuentos infantiles</a></li>
-                    </ul>
-                </div>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ms-auto py-4 py-lg-0">
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="login.php">Login</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="crear_contenido.php">Agregar</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="adminMatematicas.php">Gestionar matemáticas</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="adminCuentos.php">Gestionar cuentos</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
-        
         <!-- Page Header-->
-        <header class="masthead" style="background-image: url('assets/img/img1.jpeg')">
+        <header class="masthead" style="background-image: url('assets/img/Cuentos-infantiles.png')">
             <div class="container position-relative px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="site-heading">
-                            <h1>Aula kids</h1>
-                            <span class="subheading">Un espacio para el aprendizaje</span>
+                            <h1>Cuentos infantiles</h1>
+                            <span class="subheading">Cuentos para divertirse y hacer volar la imaginación</span>
                         </div>
                     </div>
                 </div>
@@ -83,11 +76,42 @@ $resultadoConsulta = mysqli_query($db,$query);
                         
                     
                         <div>
-                            <h2>Bienvenido a AulaKids</h2>
-                           <p>AulaKids es un proyecto que tiene por objetivo clasificar y mostrar contenido para niños, el cual ha sido
-                               cuidadosamente seleccionado para que puedan disfrutar de el sin restricciones
-                           </p>
-                           <img src="assets/img/img3.JPG" alt="">
+                            <table>
+                                <thead>
+                                    <!-- <tr>
+                                        <th><button class="btn btn-success"><a href="crear_contenido.php">Añadir</a></button></th>
+                                    </tr> -->
+                                    <tr>
+                                        <th>ID: </th>
+                                        <th>Título: </th>
+                                        <th>Video:</th>
+                                    </tr>
+                                    
+                                </thead>
+                                
+                                <tbody>
+                                    
+                                    <?php while($contenido = mysqli_fetch_assoc($resultadoConsulta)): ?>
+                                    <tr>
+                                        <td> <?php echo $contenido['id'] ?></td>
+                                        <td><?php echo $contenido['titulo'] ?></td>
+                                        <td><?php echo $contenido['link'] ?></td>
+                                        <td>
+                                            <button class="btn btn-warning"><a href="actualizar_contenido.php?id=<?php echo $contenido['id'] ?>">Actualizar</a></button>
+                                            
+                                            <form method = "POST" action="assets/crud_contenido/eliminarMatematicas.php">
+
+                                            <input type="hidden" name="id" value = "<?php echo $contenido['id'] ?>">
+                                            <input type="submit" class="btn btn-danger" value="Eliminar">
+
+                                            </form>
+                                            
+                                            <!-- <button class="btn btn-danger"><a href="#">Eliminar</a></button> -->
+                                        </td>
+                                    </tr>
+                                    <?php endwhile; ?>
+                                </tbody>
+                            </table>
                         </div>
                     <!-- Divider-->
                     <hr class="my-4" />

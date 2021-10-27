@@ -4,7 +4,7 @@ require 'assets/conexion.php';
 
 $db= conectarDB();
 
-$query = "SELECT * FROM contenido";
+$query = "SELECT * FROM matematicas";
 
 $resultadoConsulta = mysqli_query($db,$query);
 
@@ -26,7 +26,7 @@ $resultadoConsulta = mysqli_query($db,$query);
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Clean Blog - Start Bootstrap Theme</title>
+        <title>aulaKids-home</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
@@ -40,29 +40,31 @@ $resultadoConsulta = mysqli_query($db,$query);
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="index.php">Start Bootstrap</a>
+                <a class="navbar-brand" href="index.php">Inicio</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="home.php">Home</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about.php">About</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="post.php">Sample Post</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="contact.php">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.php">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about.php">Acerca de</a></li>
+                        <!-- <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="post.php">Sample Post</a></li> -->
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="contact.php">Contacto</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="matematicas.php">Matemáticas</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="cuentos.php">Cuentos infantiles</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
         <!-- Page Header-->
-        <header class="masthead" style="background-image: url('assets/img/home-bg.jpg')">
+        <header class="masthead" style="background-image: url('assets/img/background-matematicas.JPG')">
             <div class="container position-relative px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="site-heading">
-                            <h1>Clean Blog</h1>
-                            <span class="subheading">A Blog Theme by Start Bootstrap</span>
+                            <h1>Matemáticas para niños</h1>
+                            <span class="subheading">aprendiendo matemáticas de una manera fácil y divertida</span>
                         </div>
                     </div>
                 </div>
@@ -79,13 +81,14 @@ $resultadoConsulta = mysqli_query($db,$query);
                         <div>
                             <table>
                                 <thead>
-                                    <tr>
+                                    <!-- <tr>
                                         <th><button class="btn btn-success"><a href="crear_contenido.php">Añadir</a></button></th>
-                                    </tr>
+                                    </tr> -->
                                     <tr>
-                                        <th>ID: </th>
-                                        <th>Título: </th>
-                                        <th>Video:</th>
+                                        <th>ID </th>
+                                        <th>Título </th>
+                                        <th>Video</th>
+                                        <th>Descripción</th>
                                     </tr>
                                     
                                 </thead>
@@ -97,77 +100,26 @@ $resultadoConsulta = mysqli_query($db,$query);
                                         <td> <?php echo $contenido['id'] ?></td>
                                         <td><?php echo $contenido['titulo'] ?></td>
                                         <td><?php echo $contenido['link'] ?></td>
-                                        <td>
+                                        <td><?php echo $contenido['descripcion'] ?></td>
+                                        <!-- <td>
                                             <button class="btn btn-warning"><a href="actualizar_contenido.php?id=<?php echo $contenido['id'] ?>">Actualizar</a></button>
                                             
-                                            <form method = "POST" action="assets/crud_contenido/eliminar.php">
+                                            <form method = "POST" action="assets/crud_contenido/eliminarMatematicas.php">
 
                                             <input type="hidden" name="id" value = "<?php echo $contenido['id'] ?>">
                                             <input type="submit" class="btn btn-danger" value="Eliminar">
 
                                             </form>
-                                            
-                                            <!-- <button class="btn btn-danger"><a href="#">Eliminar</a></button> -->
-                                        </td>
+                                        </td> -->
                                     </tr>
                                     <?php endwhile; ?>
                                 </tbody>
                             </table>
                         </div>
-                    
-                        <a href="post.php">
-                            <h2 class="post-title">Man must explore, and this is exploration at its greatest</h2>
-                            <h3 class="post-subtitle">Problems look mighty small from 150 miles up</h3>
-                        </a>
-                        <p class="post-meta">
-                            Posted by
-                            <a href="#!">Start Bootstrap</a>
-                            on September 24, 2021
-                        </p>
-                    </div>
-                    <!-- Divider-->
-                    <hr class="my-4" />
-                    <!-- Post preview-->
-                    <div class="post-preview">
-                        <a href="post.html"><h2 class="post-title">I believe every human has a finite number of heartbeats. I don't intend to waste any of mine.</h2></a>
-                        <p class="post-meta">
-                            Posted by
-                            <a href="#!">Start Bootstrap</a>
-                            on September 18, 2021
-                        </p>
-                    </div>
-                    <!-- Divider-->
-                    <hr class="my-4" />
-                    <!-- Post preview-->
-                    <div class="post-preview">
-                        <a href="post.php">
-                            <h2 class="post-title">Science has not yet mastered prophecy</h2>
-                            <h3 class="post-subtitle">We predict too much for the next year and yet far too little for the next ten.</h3>
-                        </a>
-                        <p class="post-meta">
-                            Posted by
-                            <a href="#!">Start Bootstrap</a>
-                            on August 24, 2021
-                        </p>
-                    </div>
-                    <!-- Divider-->
-                    <hr class="my-4" />
-                    <!-- Post preview-->
-                    <div class="post-preview">
-                        <a href="post.php">
-                            <h2 class="post-title">Failure is not an option</h2>
-                            <h3 class="post-subtitle">Many say exploration is part of our destiny, but it’s actually our duty to future generations.</h3>
-                        </a>
-                        <p class="post-meta">
-                            Posted by
-                            <a href="#!">Start Bootstrap</a>
-                            on July 8, 2021
-                        </p>
-                    </div>
                     <!-- Divider-->
                     <hr class="my-4" />
                     <!-- Pager-->
-                    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>
+                    <!-- <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div> -->
                 </div>
             </div>
         </div>
@@ -202,7 +154,7 @@ $resultadoConsulta = mysqli_query($db,$query);
                                 </a>
                             </li>
                         </ul>
-                        <div class="small text-center text-muted fst-italic">Copyright &copy; Your Website 2021</div>
+                        <div class="small text-center text-muted fst-italic">Copyright &copy; Aulakids 2021</div>
                     </div>
                 </div>
             </div>
