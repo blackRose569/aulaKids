@@ -36,10 +36,10 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' ){
 
         if($password === $passBD){
           //usuario autenticado
-          session_start();
+          //session_start();
           $_SESSION['usuario'] = $usuario['user'];
           $_SESSION['login'] = true;
-          header('Location: http://localhost/proyecto%20evaluacion%202/crear_contenido.php');
+          header('Location:/proyecto%20evaluacion%202/crear_contenido.php');
         } else {
           $errores[] = 'contraseña erronea';
           var_dump($errores);

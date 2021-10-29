@@ -49,8 +49,6 @@ $resultadoConsulta = mysqli_query($db,$query);
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.php">Inicio</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about.php">Acerca de</a></li>
-                        <!-- <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="post.php">Sample Post</a></li> -->
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="contact.php">Contacto</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="matematicas.php">Matemáticas</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="cuentos.php">Cuentos infantiles</a></li>
                     </ul>
@@ -85,7 +83,7 @@ $resultadoConsulta = mysqli_query($db,$query);
                                         <th><button class="btn btn-success"><a href="crear_contenido.php">Añadir</a></button></th>
                                     </tr> -->
                                     <tr>
-                                        <th>ID </th>
+                                        <!-- <th>ID </th> -->
                                         <th>Título </th>
                                         <th>Video </th>
                                         <th>Descripción </th>
@@ -97,7 +95,7 @@ $resultadoConsulta = mysqli_query($db,$query);
                                     
                                     <?php while($contenido = mysqli_fetch_assoc($resultadoConsulta)): ?>
                                     <tr>
-                                        <td> <?php echo $contenido['id'] ?></td>
+                                        <!-- <td> <?php echo $contenido['id'] ?></td> -->
                                         <td><?php echo $contenido['titulo'] ?></td>
                                         <td><?php echo $contenido['link'] ?></td>
                                         <td><?php echo $contenido['descripcion'] ?></td>
