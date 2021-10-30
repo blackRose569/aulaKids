@@ -12,8 +12,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     $nuevoContenido = $_POST['iframe'];
     $tablaDestino = $_POST['campo_select_append'];
     $descripcion = $_POST['descripcion'];
+    $autor = $_POST['autor'];
 
-    $insert = "INSERT INTO $tablaDestino (id, titulo, link, descripcion) values('', '$titulo', '$nuevoContenido', '$descripcion') ";
+    $insert = "INSERT INTO $tablaDestino (id, titulo, link, descripcion, autor) values('', '$titulo', '$nuevoContenido', '$descripcion', '$autor') ";
 
     $resultado = mysqli_query($db,$insert);
 

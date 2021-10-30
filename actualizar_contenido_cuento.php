@@ -1,3 +1,62 @@
+<?php 
+require 'assets/conexion.php';
+//require '../../home.php';
+
+$id = $_GET['id'];
+$id = filter_var($id, FILTER_VALIDATE_INT);
+
+if(!$id){
+    header('Location: /index.php');
+}
+
+
+
+$db= conectarDB();
+
+/*$consulta = "SELECT * FROM matematicas WHERE id = ${id}";
+    $resultadoConsulta = mysqli_query($db,$consulta);
+    $contenido = mysqli_fetch_assoc($resultadoConsulta);
+    echo "<pre>";
+        var_dump($contenido);
+    "</pre>";*/
+
+
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
+    /* echo "<pre>";
+    var_dump($_POST);
+    echo "</pre>"; */
+
+    /*$contenido = mysql_fetch_assoc($resultadoConsulta);
+
+    $tituloConsulta = $contenido['titulo'];*/
+
+    
+
+    $titulo = $_POST['titulo'];
+    $nuevoContenido = $_POST['iframe'];
+    $descripcion = $_POST['descripcion'];
+    $autor = $_POST['autor'];
+    
+    
+
+    $update = "UPDATE cuentos SET titulo = '${titulo}', link = '${nuevoContenido}', descripcion = '${descripcion}', autor = '${autor}' WHERE id = ${id}";
+
+    $resultado = mysqli_query($db,$update);
+
+    if($resultado){
+        echo "Registro actualizado correctamente";
+        //echo"".$update;
+        header('Location: /proyecto%20evaluacion%202/adminCuentos.php');
+    }
+    else {
+        echo "Error".$update;
+    
+    }
+
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -5,10 +64,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Añadir nuevo contenido</title>
+        <title>Actualizar registros</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="js/validacionUpdate.js"></script>
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
@@ -24,24 +85,24 @@
                     Menu
                     <i class="fas fa-bars"></i>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
+                <!-- <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="crear_contenido.php">Agregar</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="adminMatematicas.php">Gestionar matemáticas</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="adminCuentos.php">Gestionar cuentos</a></li>
-                        
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="home.php">Home</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about.php">About</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="post.php">Sample Post</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="contact.php">Contact</a></li>
                     </ul>
-                </div>
+                </div> -->
             </div>
         </nav>
         <!-- Page Header-->
-        <header class="masthead" style="background-image: url('assets/img/background-agregar-matematicas.jpg')">
+        <header class="masthead" style="background-image: url('assets/img/contact-bg.jpg')">
             <div class="container position-relative px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="page-heading">
-                            <h1>Agregar contenido</h1>
-                            <span class="subheading">Nuestra plataforma está en constante crecimiento.</span>
+                            <h1>Actualizar contenido de Cuentos infantiles</h1>
+                            <!-- <span class="subheading">Have questions? I have answers.</span> -->
                         </div>
                     </div>
                 </div>
@@ -52,7 +113,7 @@
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
-                        <p>Si desea añadir contenido a la plataforma porfavor ingrese el título del contenido y su respectiva etiqueta iframe</p>
+                        <p>Actualize aquí los registros según sea el caso</p>
                         <div class="my-5">
                             <!-- * * * * * * * * * * * * * * *-->
                             <!-- * * SB Forms Contact Form * *-->
@@ -61,38 +122,29 @@
                             <!-- To make this form functional, sign up at-->
                             <!-- https://startbootstrap.com/solution/contact-forms-->
                             <!-- to get an API token!-->
-                            <form id="contactForm" data-sb-form-api-token="API_TOKEN" method="post" action="assets/crud_contenido/crear.php">
+                            <form id="contactForm" data-sb-form-api-token="API_TOKEN" method="POST" action="">
+                                
                                 <div class="form-floating">
-                                    <input class="form-control" id="titulo" name="titulo" type="text" requiered placeholder="ingrese el título..." data-sb-validations="required" />
+                                    <input class="form-control" id="titulo" name="titulo" type="text" placeholder="ingrese el título..." data-sb-validations="required" />
                                     <label for="name">Título</label>
                                     <div class="invalid-feedback" data-sb-feedback="name:required">El título es requerido.</div>
                                 </div>
                                 <div class="form-floating">
-                                    <input class="form-control" id="iframe" name="iframe" type="text" placeholder="aquí la etiqueta iframe..." data-sb-validations="required" requiered />
-                                    <label >Link iframe</label>
+                                    <input class="form-control" id="iframe" name="iframe" type="text" placeholder="aquí la etiqueta iframe..." data-sb-validations="required" />
+                                    <label for="name">Link iframe</label>
                                     <div class="invalid-feedback" data-sb-feedback="email:required">Campo requerido.</div>
                                     <div class="invalid-feedback" data-sb-feedback="email:email">no valido.</div>
                                 </div>
                                 <div class="form-floating">
-                                    <input class="form-control" id="descripcion" name="descripcion" type="text" placeholder="aquí la descripcion..." data-sb-validations="required" requiered />
-                                    <label >Descripción</label>
-                                    <div class="invalid-feedback" data-sb-feedback="email:required">Campo requerido.</div>
-                                    <div class="invalid-feedback" data-sb-feedback="email:email">no valido.</div>
+                                    <input class="form-control" id="descripcion" name="descripcion" type="text" placeholder="ingrese una descripcion..." data-sb-validations="required" />
+                                    <label for="name">Descripción</label>
+                                    <div class="invalid-feedback" data-sb-feedback="name:required">El título es requerido.</div>
                                 </div>
                                 <div class="form-floating">
-                                    <input class="form-control" id="autor" name="autor" type="text" placeholder="aquí el autor..." data-sb-validations="required" requiered />
-                                    <label >Autor</label>
-                                    <div class="invalid-feedback" data-sb-feedback="email:required">Campo requerido.</div>
-                                    <div class="invalid-feedback" data-sb-feedback="email:email">no valido.</div>
+                                    <input class="form-control" id="autor" name="autor" type="text" placeholder="ingrese una descripcion..." data-sb-validations="required" />
+                                    <label for="name">Autor</label>
+                                    <div class="invalid-feedback" data-sb-feedback="name:required">El título es requerido.</div>
                                 </div>
-                                <div class="form-floating">
-                                    <select class="form-select" name="campo_select_append" aria-label="Default select example">
-                                        <option selected>Seleccione categoría del contenido</option>
-                                        <option value="matematicas">Matemáticas</option>
-                                        <option value="cuentos">Cuentos infantiles</option>
-                                    </select>
-                                </div>
-                                
                                 <!-- <div class="form-floating">
                                     <input class="form-control" id="phone" type="tel" placeholder="Enter your phone number..." data-sb-validations="required" />
                                     <label for="phone">Phone Number</label>
@@ -123,7 +175,7 @@
                                 <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
                                 <!-- Submit Button-->
                                 <!-- <button class="btn btn-primary text-uppercase disabled" id="submitButton" type="submit">Guardar nuevo contenido</button> -->
-                                <div class="group"> <input type="submit" id="boton" class="btn btn-success" value="Guardar nuevo contenido"> </div>
+                                <div class="group"> <input type="submit" id="boton" class="btn btn-success" value="Actualizar nuevo contenido"> </div>
                             </form>
                         </div>
                     </div>

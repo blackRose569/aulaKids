@@ -87,6 +87,7 @@ $resultadoConsulta = mysqli_query($db,$query);
                                         <th>Título </th>
                                         <th>Video</th>
                                         <th>Descripción</th>
+                                        <th>Autor</th>
                                     </tr>
                                     
                                 </thead>
@@ -99,6 +100,7 @@ $resultadoConsulta = mysqli_query($db,$query);
                                         <td><?php echo $contenido['titulo'] ?></td>
                                         <td><?php echo $contenido['link'] ?></td>
                                         <td><?php echo $contenido['descripcion'] ?></td>
+                                        <td><?php echo $contenido['autor'] ?></td>
                                         <!-- <td>
                                             <button class="btn btn-warning"><a href="actualizar_contenido.php?id=<?php echo $contenido['id'] ?>">Actualizar</a></button>
                                             

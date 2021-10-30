@@ -85,6 +85,8 @@ $resultadoConsulta = mysqli_query($db,$query);
                                         <th>ID: </th>
                                         <th>Título: </th>
                                         <th>Video:</th>
+                                        <th>Descripcion:</th>
+                                        <th>Autor:</th>
                                     </tr>
                                     
                                 </thead>
@@ -96,10 +98,12 @@ $resultadoConsulta = mysqli_query($db,$query);
                                         <td> <?php echo $contenido['id'] ?></td>
                                         <td><?php echo $contenido['titulo'] ?></td>
                                         <td><?php echo $contenido['link'] ?></td>
+                                        <td><?php echo $contenido['descripcion'] ?></td>
+                                        <td><?php echo $contenido['autor'] ?></td>
                                         <td>
-                                            <button class="btn btn-warning"><a href="actualizar_contenido.php?id=<?php echo $contenido['id'] ?>">Actualizar</a></button>
+                                            <button class="btn btn-warning"><a href="actualizar_contenido_cuento.php?id=<?php echo $contenido['id'] ?>">Actualizar</a></button>
                                             
-                                            <form method = "POST" action="assets/crud_contenido/eliminarMatematicas.php">
+                                            <form method = "POST" action="assets/crud_contenido/eliminarCuentos.php">
 
                                             <input type="hidden" name="id" value = "<?php echo $contenido['id'] ?>">
                                             <input type="submit" class="btn btn-danger" value="Eliminar">

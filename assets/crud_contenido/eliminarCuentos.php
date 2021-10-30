@@ -7,11 +7,11 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     $id = filter_var($id, FILTER_VALIDATE_INT);
 
     if($id){
-        $delete = "DELETE FROM contenido WHERE id = ${id}";
+        $delete = "DELETE FROM cuentos WHERE id = ${id}";
         $resultado = mysqli_query($db, $delete);
 
         if($resultado){
-            header('Location: /proyecto%20evaluacion%202/home.php');
+            header('Location: /proyecto%20evaluacion%202/adminCuentos.php');
         }
     }
 }

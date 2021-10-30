@@ -61,7 +61,7 @@ $resultadoConsulta = mysqli_query($db,$query);
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="site-heading">
                             <h1>Matemáticas para niños</h1>
-                            <span class="subheading">aprendiendo matemáticas de una manera fácil y divertida</span>
+                            <span class="subheading">Aprendiendo matemáticas de una manera fácil y divertida</span>
                         </div>
                     </div>
                 </div>
@@ -85,6 +85,8 @@ $resultadoConsulta = mysqli_query($db,$query);
                                         <th>ID: </th>
                                         <th>Título: </th>
                                         <th>Video:</th>
+                                        <th>Descripcion:</th>
+                                        <th>Autor:</th>
                                     </tr>
                                     
                                 </thead>
@@ -96,8 +98,10 @@ $resultadoConsulta = mysqli_query($db,$query);
                                         <td> <?php echo $contenido['id'] ?></td>
                                         <td><?php echo $contenido['titulo'] ?></td>
                                         <td><?php echo $contenido['link'] ?></td>
+                                        <td><?php echo $contenido['descripcion'] ?></td>
+                                        <td><?php echo $contenido['autor'] ?></td>
                                         <td>
-                                            <button class="btn btn-warning"><a href="actualizar_contenido.php?id=<?php echo $contenido['id'] ?>">Actualizar</a></button>
+                                            <button class="btn btn-warning"><a href="actualizar_contenido.php?id=<?php echo $contenido['id']?>">Actualizar</a></button>
                                             
                                             <form method = "POST" action="assets/crud_contenido/eliminarMatematicas.php">
 

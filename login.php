@@ -7,6 +7,7 @@
         <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' rel='stylesheet'>
         <link href='css/login.css' rel='stylesheet'>
         <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+        <script src="js/validacionLogin.js"></script>
                                 
     </head>
     
@@ -23,7 +24,7 @@
                             <div class="group"> <label for="user" class="label">Username</label> <input id="user" name="usuario" type="text" class="input" placeholder="Enter your username"> </div>
                             <div class="group"> <label for="pass" class="label">Password</label> <input id="pass" name="contrasenia" type="password" class="input" data-type="password" placeholder="Enter your password"> </div>
                             <div class="group"> <input id="check" type="checkbox" class="check" checked> <label for="check"><span class="icon"></span> Keep me Signed in</label> </div>
-                            <div class="group"> <input type="submit" class="button" value="Sign In"> </div>
+                            <div class="group"> <input type="submit" id="btnLogin" class="button" value="Sign In"> </div>
                             <div class="hr"></div>
                             <div class="foot"> <a href="#">Forgot Password?</a> </div>
                         </form>
@@ -31,9 +32,9 @@
                         </div>
                         <div class="sign-up-form">
                         <form action="assets/guardarNuevoUsuario.php" method="post">
-                            <div class="group"> <label for="user" class="label">Username</label> <input id="user" name="usuario" type="text" class="input" placeholder="Create your Username"> </div>
-                            <div class="group"> <label for="pass" class="label">Password</label> <input id="pass" name="password" type="password" class="input" data-type="password" placeholder="Create your password"> </div>
-                            <div class="group"> <label for="pass" class="label">Repeat Password</label> <input id="pass" name="repeatPassword" type="password" class="input" data-type="password" placeholder="Repeat your password"> </div>
+                            <div class="group"> <label for="user" id="user" class="label">Username</label> <input id="user" name="usuario" type="text" class="input" placeholder="Create your Username" requiered> </div>
+                            <div class="group"> <label for="pass" id="pass" class="label">Password</label> <input id="pass" name="password" type="password" class="input" data-type="password" placeholder="Create your password" requiered> </div>
+                            <div class="group"> <label for="pass" id="confirmPass" class="label">Repeat Password</label> <input id="pass" name="repeatPassword" type="password" class="input" data-type="password" placeholder="Repeat your password" requiered> </div>
                             <!-- <div class="group"> <label for="pass" class="label">Email Address</label> <input id="pass" type="text" class="input" placeholder="Enter your email address"> </div> -->
                             <div class="group"> <input type="submit" class="button" value="Sign Up"> </div>
                             <div class="hr"></div>

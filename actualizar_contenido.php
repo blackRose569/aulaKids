@@ -6,13 +6,19 @@ $id = $_GET['id'];
 $id = filter_var($id, FILTER_VALIDATE_INT);
 
 if(!$id){
-    header('Location: /home.php');
+    header('Location: /index.php');
 }
 
 
 
 $db= conectarDB();
 
+/*$consulta = "SELECT * FROM matematicas WHERE id = ${id}";
+    $resultadoConsulta = mysqli_query($db,$consulta);
+    $contenido = mysqli_fetch_assoc($resultadoConsulta);
+    echo "<pre>";
+        var_dump($contenido);
+    "</pre>";*/
 
 
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
@@ -20,18 +26,27 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     var_dump($_POST);
     echo "</pre>"; */
 
-    $titulo = $_POST['titulo'];
-    $nuevoContenido = $_POST['iframe'];
+    /*$contenido = mysql_fetch_assoc($resultadoConsulta);
+
+    $tituloConsulta = $contenido['titulo'];*/
+
     
 
-    $update = "UPDATE contenido SET titulo = '${titulo}', link = '${nuevoContenido}' WHERE id = ${id}";
+    $titulo = $_POST['titulo'];
+    $nuevoContenido = $_POST['iframe'];
+    $descripcion = $_POST['descripcion'];
+    $autor = $_POST['autor'];
+    
+    
+
+    $update = "UPDATE cuentos SET titulo = '${titulo}', link = '${nuevoContenido}', descripcion = '${descripcion}', autor = '${autor}' WHERE id = ${id}";
 
     $resultado = mysqli_query($db,$update);
 
     if($resultado){
         echo "Registro actualizado correctamente";
         //echo"".$update;
-        header('Location: /proyecto%20evaluacion%202/home.php');
+        header('Location: /proyecto%20evaluacion%202/adminMatematicas.php');
     }
     else {
         echo "Error".$update;
@@ -53,6 +68,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="js/validacionUpdate.js"></script>
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
@@ -63,19 +80,19 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="index.php">Start Bootstrap</a>
+                <a class="navbar-brand" href="index.php">Inicio</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
+                <!-- <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="home.php">Home</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about.php">About</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="post.php">Sample Post</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="contact.php">Contact</a></li>
                     </ul>
-                </div>
+                </div> -->
             </div>
         </nav>
         <!-- Page Header-->
@@ -84,8 +101,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="page-heading">
-                            <h1>Contact Me</h1>
-                            <span class="subheading">Have questions? I have answers.</span>
+                            <h1>Actualizar contenido de matemáticas</h1>
+                            <!-- <span class="subheading">Have questions? I have answers.</span> -->
                         </div>
                     </div>
                 </div>
@@ -106,6 +123,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                             <!-- https://startbootstrap.com/solution/contact-forms-->
                             <!-- to get an API token!-->
                             <form id="contactForm" data-sb-form-api-token="API_TOKEN" method="POST" action="">
+                                
                                 <div class="form-floating">
                                     <input class="form-control" id="titulo" name="titulo" type="text" placeholder="ingrese el título..." data-sb-validations="required" />
                                     <label for="name">Título</label>
@@ -116,6 +134,16 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                                     <label for="name">Link iframe</label>
                                     <div class="invalid-feedback" data-sb-feedback="email:required">Campo requerido.</div>
                                     <div class="invalid-feedback" data-sb-feedback="email:email">no valido.</div>
+                                </div>
+                                <div class="form-floating">
+                                    <input class="form-control" id="descripcion" name="descripcion" type="text" placeholder="ingrese una descripcion..." data-sb-validations="required" />
+                                    <label for="name">Descripción</label>
+                                    <div class="invalid-feedback" data-sb-feedback="name:required">El título es requerido.</div>
+                                </div>
+                                <div class="form-floating">
+                                    <input class="form-control" id="autor" name="autor" type="text" placeholder="ingrese una descripcion..." data-sb-validations="required" />
+                                    <label for="name">Autor</label>
+                                    <div class="invalid-feedback" data-sb-feedback="name:required">El título es requerido.</div>
                                 </div>
                                 <!-- <div class="form-floating">
                                     <input class="form-control" id="phone" type="tel" placeholder="Enter your phone number..." data-sb-validations="required" />
@@ -147,7 +175,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                                 <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
                                 <!-- Submit Button-->
                                 <!-- <button class="btn btn-primary text-uppercase disabled" id="submitButton" type="submit">Guardar nuevo contenido</button> -->
-                                <div class="group"> <input type="submit" class="btn btn-success" value="Actualizar nuevo contenido"> </div>
+                                <div class="group"> <input type="submit" id="boton" class="btn btn-success" value="Actualizar nuevo contenido"> </div>
                             </form>
                         </div>
                     </div>
